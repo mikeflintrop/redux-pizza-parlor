@@ -1,6 +1,8 @@
 import React from 'react';
 // import axios from 'axios';
 import { useSelector } from "react-redux";
+import '../App/App.css';
+
 
 function PizzaListItem({pizza}) {
 
@@ -22,12 +24,14 @@ function PizzaListItem({pizza}) {
 
 
     return (
-        <div key={pizza.id} className="pizzas">
-            <p>{pizza.name}</p>
-            <p>{pizza.description}</p>
-            <p>{pizza.price}</p>
-            <p>{pizza.image_path}</p>
-        {/* toggling */}
+        <div className="pizza-card">
+        <p>{pizza.image_path}</p>
+            <div key={pizza.id} className="pizza-container">
+                <p>{pizza.name}</p>
+                <p>{pizza.description}</p>
+                <p>{pizza.price}</p>
+                {/* toggling */}
+            </div>
         </div>
     );
     }
