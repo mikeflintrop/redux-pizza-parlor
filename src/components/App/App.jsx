@@ -5,6 +5,7 @@ import PizzaList from '../PizzaList/PizzaList';
 import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
 import PizzaForm from '../PizzaForm/PizzaForm';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
   };
 
   return (
+    <Router>
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
@@ -43,10 +45,31 @@ function App() {
       {/* <img src='images/pizza_photo.png' /> */}
       <p>Pizza is great.</p>
       <div>
-        <PizzaForm getPizzas={getPizzas}/>
-        <PizzaList />
+        <ul className="nav">
+          <li>
+            <Link to="/">Pizzas</Link>
+          </li>
+          <li>
+            <Link to="/customerInfo">Customer Info</Link>
+          </li>
+          <li>
+            <Link to="/checkout">Checkout</Link>
+          </li>
+        </ul>
+          <Route exact path="/">
+            <PizzaList />
+          </Route>
+
+          <Route exact path="/customerInfo">            
+            <PizzaForm getPizzas={getPizzas}/>
+          </Route>
+
+          <Route exact path="/checkout">            
+            <Checkout />
+          </Route>
       </div>
     </div>
+    </Router>
   );
 }
 

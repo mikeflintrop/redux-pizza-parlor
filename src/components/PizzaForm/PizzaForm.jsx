@@ -16,10 +16,10 @@ function PizzaForm ({getPizzas}) {
 //add request
 
         axios({
-          method: 'POST',
-          url: `/api/order`
+            method: 'POST',
+            url: `/api/order`
         })
-          .then((response) => { 
+        .then((response) => { 
             dispatch({
                 type: 'ADD_CUSTOMER',
                 payload: [{
@@ -32,13 +32,13 @@ function PizzaForm ({getPizzas}) {
                 }]
                 // type: 'ADD_TO_CART', 
                 // payload: `${pizza.id, pizza.price}`
-              })
-              console.log('here is the response.data', response.data)
+                })
+            console.log('here is the response.data', response.data)
             // getPizzas() 
-          })
-          .catch((error) => {
+        })
+        .catch((error) => {
             console.log('error on adding to cart: ', error)
-          })
+        })
     
         setNewCustomer('');
         setNewAddress('');
