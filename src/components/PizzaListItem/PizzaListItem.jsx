@@ -37,10 +37,13 @@ function PizzaListItem({pizza}) {
         console.log('error on delete: ', error)
       })
   };
-// const handleToggle=()=>{
-//     setAddPizza(!addPizza);
-// }
 
+  // toggle between photo and description
+  const itemToggleClick=()=>{
+  
+  //toggle the add/delete
+  setAddPizza(!addPizza)
+  console.log('You clicked the button!', addPizza)}
 
     return (
         <div key={pizza.id} className="pizzas">
@@ -49,13 +52,13 @@ function PizzaListItem({pizza}) {
             <p>{pizza.price}</p>
             <p>{pizza.image_path}</p>
         {/* toggling */}
-    {/* <div>
+    <div>
         {addPizza ?
-        <button onClick={addPizzaItem}>Add to Cart</button>
+        <button onClick={itemToggleClick}>Add to Cart</button>
         :
-        <button onClick={deletePizzaItem}>Delete from Cart</button>
+        <button onClick={itemToggleClick}>Delete from Cart</button>
         }
-    </div> */}
+    </div>
 
         </div>
     );
