@@ -1,7 +1,10 @@
-// import React from 'react';
+import React from 'react';
 // import axios from 'axios';
+import { useSelector } from "react-redux";
 
-// function PizzaListItem() {
+function PizzaListItem({pizza}) {
+
+    // const pizzas = useSelector(store => store.pizzaListReducer)
 
 //   const deleteArtist = () => {
 //     axios({
@@ -16,14 +19,17 @@
 //       })
 //   };
 
-//   return (
-//     <tr>
-//       <td>{artist.name}</td>
-//       <td>
-//         <button onClick={deleteArtist}>DELETE</button>
-//       </td>
-//     </tr>
-//   );
-// }
 
-// export default ArtistListItem;
+
+    return (
+        <div key={pizza.id} className="pizzas">
+            <p>{pizza.name}</p>
+            <p>{pizza.description}</p>
+            <p>{pizza.price}</p>
+            <p>{pizza.image_path}</p>
+        {/* toggling */}
+        </div>
+    );
+    }
+
+export default PizzaListItem;
