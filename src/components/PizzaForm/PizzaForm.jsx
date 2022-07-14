@@ -78,14 +78,15 @@ function PizzaForm ({getPizzas}) {
             <div>
             <input 
                 type="radio" 
-                name="Delivery"
+                name="type"
                 value={newType}
+                checked="checked"
                 onChange={(event) => setNewType(event.target.value)}
             /> Delivery
 
             <input 
                 type="radio" 
-                name="Pickup" 
+                name="type" 
                 value={newType}
                 onChange={(event) => setNewType(event.target.value)}
             /> Pickup
