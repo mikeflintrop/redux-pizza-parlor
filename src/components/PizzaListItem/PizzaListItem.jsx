@@ -1,8 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import { useSelector } from "react-redux";
+
 import {useDispatch} from "react-redux"
 import {useState} from 'react'
+
+import '../App/App.css';
+
+
+
 function PizzaListItem({pizza}) {
 
     const [addPizza, setAddPizza]=useState(true)
@@ -68,6 +74,7 @@ function PizzaListItem({pizza}) {
         <button onClick={deletePizzaItem}>Delete from Cart</button>
         }
     </div>
+
         </div>
     );
     }
