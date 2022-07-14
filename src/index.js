@@ -21,6 +21,23 @@ const pizzaListReducer = (state = [], action) => {
         default: 
         return state;
     }
+};
+
+// Customer Reducer
+const customerTableReducer = (state = [], action) => {
+    console.log('Customer Table reducer: ', action)
+
+    switch (action.type) {
+        case 'ADD_CUSTOMER':
+            console.log('You clicked ADD_CUSTOMER', action.payload);
+        // state.push(action.payload); -- wrong
+        // spread operator allows new array to be passed with action.payload
+        return action.payload;
+
+        default: 
+        // if action.type is anything else, return last value of state
+        return state;
+    }
 }
 
 // Reducer pizzas in the cart
@@ -47,7 +64,7 @@ const storeInstance = createStore(
     combineReducers({
     pizzaListReducer,
     cartReducer,
-
+    customerTableReducer
     }),
     applyMiddleware(logger),
 );
