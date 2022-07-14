@@ -4,6 +4,7 @@ import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
+import PizzaForm from '../PizzaForm/PizzaForm';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       {/* <img src='images/pizza_photo.png' /> */}
       <p>Pizza is great.</p>
       <div>
+        <PizzaForm getPizzas={getPizzas}/>
         <PizzaList />
       </div>
     </div>

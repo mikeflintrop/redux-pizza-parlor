@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-
-function PizzaForm () {
+import axios from 'axios';
+function PizzaForm ({getPizzas}) {
 
     const [newCustomer, setNewCustomer] = useState('');
     const [newAddress, setNewAddress] = useState('');
@@ -13,12 +13,32 @@ function PizzaForm () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+//add request
 
-        dispatch({
-            type: 'ADD_CUSTOMER',
-            payload: [newCustomer, 
-            newAddress, newCity, newZip, newType]
-        });
+        axios({
+          method: 'POST',
+          url: `/api/order`
+        })
+          .then((response) => { 
+            dispatch({
+                type: 'ADD_CUSTOMER',
+                payload: [{
+                    customer_name: newCustomer,
+                    street_address: newAddress,
+                    city: newCity,
+                    zip: newZip,
+                    type: newType,
+                    total: newTotal,  
+                }]
+                // type: 'ADD_TO_CART', 
+                // payload: `${pizza.id, pizza.price}`
+              })
+              console.log('here is the response.data', response.data)
+            // getPizzas() 
+          })
+          .catch((error) => {
+            console.log('error on adding to cart: ', error)
+          })
     
         setNewCustomer('');
         setNewAddress('');
@@ -44,13 +64,13 @@ function PizzaForm () {
             />
             <input 
                 type="text" 
-                placeholder="Name"
+                placeholder="City"
                 value={newCity}
                 onChange={(event) => setNewCity(event.target.value)}
             />
             <input 
                 type="text" 
-                placeholder="Name"
+                placeholder="Zipcode"
                 value={newZip}
                 onChange={(event) => setNewZip(event.target.value)}
             />
