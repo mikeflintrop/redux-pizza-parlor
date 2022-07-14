@@ -5,6 +5,7 @@ import PizzaList from '../PizzaList/PizzaList';
 import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
 
+
 function App() {
   const dispatch=useDispatch();
 
@@ -15,14 +16,17 @@ function App() {
   }, [] );
   
   const getPizzas = () => {
-       axios({
+      axios({
       method: 'GET',
       url: '/api/pizza'
     })
       .then((response) => {
         // response.data is the array of pizzas
         console.log(response.data);
-          dispatch({type: 'SET_PIZZA_LIST', payload: response.data})
+        dispatch({
+          type: 'SET_PIZZA_LIST', 
+          payload: response.data
+        })
       })
       .catch((error) => {
         console.log('error on GET', error);
@@ -35,10 +39,10 @@ function App() {
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
   
-      <img src='images/pizza_photo.png' />
+      {/* <img src='images/pizza_photo.png' /> */}
       <p>Pizza is great.</p>
       <div>
-        <PizzaList/>
+        <PizzaList />
       </div>
     </div>
   );
