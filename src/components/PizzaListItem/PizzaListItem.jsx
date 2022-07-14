@@ -17,24 +17,6 @@ function PizzaListItem({pizza}) {
 
     const entirePizza = useSelector(store => store.pizzaListReducer)
 
-//add request
-    const addPizzaItem = () => {
-        axios({
-          method: 'POST',
-          url: `/api/order`
-        })
-          .then((response) => { 
-            dispatch({
-                type: 'ADD_TO_CART', 
-                payload: `${pizza.id, pizza.price}`
-              })
-              console.log('here is the response.data', response.data)
-            getPizzas() 
-          })
-          .catch((error) => {
-            console.log('error on adding to cart: ', error)
-          })
-      };
 
       //delete request
   const deletePizzaItem = (id) => {
@@ -67,13 +49,13 @@ function PizzaListItem({pizza}) {
             <p>{pizza.price}</p>
             <p>{pizza.image_path}</p>
         {/* toggling */}
-    <div>
+    {/* <div>
         {addPizza ?
         <button onClick={addPizzaItem}>Add to Cart</button>
         :
         <button onClick={deletePizzaItem}>Delete from Cart</button>
         }
-    </div>
+    </div> */}
 
         </div>
     );
