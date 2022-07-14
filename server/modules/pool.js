@@ -20,7 +20,7 @@ if (process.env.DATABASE_URL) {
     host: params.hostname,
     port: params.port,
     database: params.pathname.split('/')[1],
-    ssl: { rejectUnauthorized: false },
+    ssl: {rejectUnauthorized: false},
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
@@ -31,6 +31,8 @@ if (process.env.DATABASE_URL) {
     database: 'pizza_parlor', // You will need a database named `pizza_parlor` in order for this to work locally
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+    user: 'postgres',
+    password: 'postgres',
   };
 }
 
