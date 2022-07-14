@@ -3,7 +3,7 @@ import React from 'react';
 import{useSelector} from 'react-redux'
 
 function PizzaList() {
-  const  pizzas= useSelector(store=> store.pizzas)
+  const  pizzas= useSelector(store=> store.pizzaListReducer)
   return (
     <div>
       <ul>

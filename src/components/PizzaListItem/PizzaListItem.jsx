@@ -1,24 +1,29 @@
 // import React from 'react';
-// import {useDispatch} from 'react-redux'
-// // Displays a single pizza
-// function PizzaListItem({ product }) {
-//   const dispatch = useDispatch()
-//   const addProductToCart = (event) => {
-//     console.log(product);
-//     // TODO: Dispatch here
-//     event.preventDefault();
-//     dispatch({
-//       type: 'ADD_TO_CART',
-//       payload: product
-//     });
-//   }
+// import axios from 'axios';
+
+// function PizzaListItem() {
+
+//   const deleteArtist = () => {
+//     axios({
+//       method: 'DELETE',
+//       url: `/artist/${artist.id}`
+//     })
+//       .then((response) => { 
+//         refreshArtists() 
+//       })
+//       .catch((error) => {
+//         console.log('error on delete: ', error)
+//       })
+//   };
 
 //   return (
-//     <li>
-//       {product.name}: {product.price}{' '}
-//       <button onClick={addProductToCart}>Add to Cart</button>
-//     </li>
+//     <tr>
+//       <td>{artist.name}</td>
+//       <td>
+//         <button onClick={deleteArtist}>DELETE</button>
+//       </td>
+//     </tr>
 //   );
 // }
 
-// export default ProductListItem;
+// export default ArtistListItem;
