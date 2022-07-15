@@ -54,7 +54,6 @@ const cartReducer = (state = [], action) => {
       return [...state, action.payload];
     // totalCost: (totalCost += Number(action.payload.price)),
 
-
     case 'DELETE_FROM_CART':
       console.log('You clicked DELETE_FROM_CART', action.payload);
       const pizzaSelected = (pizza) => {
