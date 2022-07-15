@@ -41,21 +41,24 @@ dispatch({
   console.log('You clicked the button!', addPizza)}
 
     return (
-        <div key={pizza.id} className="pizzas">
+      <><div className="pizza-card">
+        <p>{pizza.image_path}</p>
+        </div>
+        <div key={pizza.id} className="pizza-container">
             <p>{pizza.name}</p>
             <p>{pizza.description}</p>
             <p>{pizza.price}</p>
-            <p>{pizza.image_path}</p>
-        {/* toggling */}
+        </div>
     <div>
         {addPizza ?
         <button onClick={handleAddPizza}>Add to Cart</button>
         :
         <button onClick={handleDeletePizza}>Delete from Cart</button>
         }
-    </div>
-
-        </div>
+        
+      </div>
+    </>
+    
     );
     }
 
