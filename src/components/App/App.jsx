@@ -10,7 +10,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 function App() {
   const dispatch=useDispatch();
-
+  const [totalPrice, setTotalPrice]=useState(0)
   useEffect(() => {
 
     getPizzas();
@@ -34,7 +34,8 @@ function App() {
         console.log('error on GET', error);
       });
   };
-
+ 
+  setTotalPrice (totalPrice+=pizza.price)
   return (
     <Router>
     <div className='App'>

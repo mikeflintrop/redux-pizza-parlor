@@ -12,12 +12,12 @@ import '../App/App.css';
 function PizzaListItem({pizza}) {
 
     const [addPizza, setAddPizza]=useState(true)
-
     const dispatch=useDispatch();
 
     // const pizza = useSelector(store => store.pizzaListReducer)
     const handleAddPizza=(id)=>{
         itemToggleClick()
+      
     dispatch({
         type: 'ADD_TO_CART', 
         payload: pizza
