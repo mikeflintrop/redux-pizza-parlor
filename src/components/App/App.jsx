@@ -65,7 +65,7 @@ function App() {
           </Route>
 
           <Route exact path="/checkout">            
-            <Checkout />
+            {/* <Checkout /> */}
           </Route>
       </div>
     </div>

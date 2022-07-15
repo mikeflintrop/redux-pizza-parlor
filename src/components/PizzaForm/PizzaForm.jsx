@@ -8,18 +8,22 @@ function PizzaForm ({getPizzas}) {
     const [newCity, setNewCity] = useState('');
     const [newZip, setNewZip] = useState('');
     const [newType, setNewType] = useState('Delivery');
-
+    const [newTotal, setNewTotal] = useState('Delivery');
     const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         event.preventDefault();
 //add request
-
+//should be in the checkout
         axios({
             method: 'POST',
-            url: `/api/order`
+            url: `/api/order`,
+            data: 
+                customerOrder
+            
         })
         .then((response) => { 
+            // Dispatch to the redux store
             dispatch({
                 type: 'ADD_CUSTOMER',
                 payload: [{
@@ -30,9 +34,14 @@ function PizzaForm ({getPizzas}) {
                     type: newType,
                     total: newTotal,  
                 }]
+                [{}]
                 // type: 'ADD_TO_CART', 
                 // payload: `${pizza.id, pizza.price}`
                 })
+            // Next navigate to the checkout page
+            // something like: history.push('/checkout')
+            // Once you hit the checkout button, THEN YOU CAN POST ALL THE THINGS TO THE DATABASE
+
             console.log('here is the response.data', response.data)
             // getPizzas() 
         })

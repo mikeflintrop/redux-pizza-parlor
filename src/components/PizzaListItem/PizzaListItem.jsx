@@ -15,28 +15,23 @@ function PizzaListItem({pizza}) {
 
     const dispatch=useDispatch();
 
-    const entirePizza = useSelector(store => store.pizzaListReducer)
-
-
-      //delete request
-  const deletePizzaItem = (id) => {
-    setAddPizza(!addPizza);
-    axios({
-      method: 'DELETE',
-      url: `/api/order`
-    })
-      .then((response) => { 
-        dispatch({
-            type: 'DELETE_FROM_CART', 
-            payload: response.data
-          })
-        getPizzas() 
-        
+    // const pizza = useSelector(store => store.pizzaListReducer)
+    const handleAddPizza=(id)=>{
+        itemToggleClick()
+    dispatch({
+        type: 'ADD_TO_CART', 
+        payload: pizza
       })
-      .catch((error) => {
-        console.log('error on delete: ', error)
-      })
-  };
+  }
+
+  const handleDeletePizza=(id)=>{
+    itemToggleClick()
+dispatch({
+    type: 'DELETE_FROM_CART', 
+    payload: pizza
+  })
+}
+
 
   // toggle between photo and description
   const itemToggleClick=()=>{
@@ -54,9 +49,9 @@ function PizzaListItem({pizza}) {
         {/* toggling */}
     <div>
         {addPizza ?
-        <button onClick={itemToggleClick}>Add to Cart</button>
+        <button onClick={handleAddPizza}>Add to Cart</button>
         :
-        <button onClick={itemToggleClick}>Delete from Cart</button>
+        <button onClick={handleDeletePizza}>Delete from Cart</button>
         }
     </div>
 
